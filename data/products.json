@@ -1,0 +1,647 @@
+[
+  {
+    "id": "poste-cabine-250-kva",
+    "slug": "poste-cabine-250-kva",
+    "categoryId": "postes-prefabriques",
+    "categoryName": "Postes préfabriqués HT/BT",
+    "name": "Poste cabine 250 kVA",
+    "shortDescription": "Solution compacte et robuste en béton armé pour la distribution publique et industrielle.",
+    "description": "Le poste cabine 250 kVA est une solution complète de distribution électrique intégrant un transformateur de puissance 250 kVA et des équipements HT/BT dans une cabine en béton armé de haute résistance. Conçu pour une installation extérieure, il assure la réception, la transformation et la distribution de l'énergie électrique en toute sécurité.",
+    "image": "/assets/poste-prefabrique.png",
+    "gallery": [
+      "/assets/poste-prefabrique.png",
+      "/assets/poste-interieur.png",
+      "/assets/poste-installation.png",
+      "/assets/poste-transport.png"
+    ],
+    "specifications": {
+      "Puissance nominale": "250 kVA",
+      "Tension MT": "12 / 24 kV",
+      "Tension BT": "400 V",
+      "Fréquence": "50 Hz",
+      "Groupe vectoriel": "Dyn11",
+      "Niveau d'isolement MT": "24 kV",
+      "Niveau d'isolement BT": "1 kV",
+      "Transformateur": "Huile minérale",
+      "Type de refroidissement": "ONAN",
+      "Indice de protection": "IP54",
+      "Température de fonctionnement": "-25°C à +50°C",
+      "Matériau de la cabine": "Béton armé",
+      "Couleur": "Gris clair RAL 7035 / Bleu RAL 5013",
+      "Normes": "IEC 62271-202, IEC 60529, CEI 60076"
+    },
+    "features": [
+      "Structure en béton armé haute résistance",
+      "Équipements électriques MT et BT de qualité",
+      "Ventilation naturelle optimisée",
+      "Accès facile pour l'exploitation et la maintenance",
+      "Conforme aux normes algériennes et internationales"
+    ],
+    "advantages": [
+      "Installation rapide et simplifiée",
+      "Sécurité des personnes et des biens",
+      "Excellente résistance aux conditions climatiques",
+      "Faible coût d'exploitation",
+      "Entretien facilité",
+      "Longue durée de vie"
+    ],
+    "applications": [
+      "Réseaux de distribution publique",
+      "Zones industrielles et usines",
+      "Zones résidentielles et lotissements",
+      "Infrastructures et bâtiments publics",
+      "Télécommunications et data centers",
+      "Énergies renouvelables"
+    ],
+    "documents": [
+      {
+        "title": "Fiche technique",
+        "url": "/documents/poste-cabine-250-kva.pdf"
+      }
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "poste-cabine-400-kva",
+    "slug": "poste-cabine-400-kva",
+    "categoryId": "postes-prefabriques",
+    "categoryName": "Postes préfabriqués HT/BT",
+    "name": "Poste cabine 400 kVA",
+    "shortDescription": "Solution robuste pour les besoins moyens en distribution électrique.",
+    "description": "Le poste cabine 400 kVA est conçu pour répondre aux besoins de distribution électrique moyenne puissance. Il intègre un transformateur 400 kVA et des équipements HT/BT dans une cabine préfabriquée en béton armé.",
+    "image": "/assets/poste-prefabrique.png",
+    "gallery": [
+      "/assets/poste-prefabrique.png",
+      "/assets/poste-interieur.png",
+      "/assets/poste-installation.png"
+    ],
+    "specifications": {
+      "Puissance nominale": "400 kVA",
+      "Tension MT": "12 / 24 kV",
+      "Tension BT": "400 V",
+      "Fréquence": "50 Hz",
+      "Groupe vectoriel": "Dyn11",
+      "Indice de protection": "IP54",
+      "Matériau de la cabine": "Béton armé",
+      "Normes": "IEC 62271-202, IEC 60529"
+    },
+    "features": [
+      "Structure en béton armé haute résistance",
+      "Équipements MT et BT certifiés",
+      "Ventilation optimisée",
+      "Accès maintenance facilité"
+    ],
+    "advantages": [
+      "Installation record",
+      "Sécurité garantie",
+      "Résistance climatique",
+      "Coût d'exploitation réduit"
+    ],
+    "applications": [
+      "Réseaux de distribution publique",
+      "Zones industrielles",
+      "Bâtiments publics"
+    ],
+    "documents": [],
+    "isFeatured": true
+  },
+  {
+    "id": "poste-kiosque-630-kva",
+    "slug": "poste-kiosque-630-kva",
+    "categoryId": "postes-prefabriques",
+    "categoryName": "Postes préfabriqués HT/BT",
+    "name": "Poste kiosque 630 kVA",
+    "shortDescription": "Poste kiosque haute performance pour les sites industriels exigeants.",
+    "description": "Le poste kiosque 630 kVA est une solution de distribution électrique haute puissance, idéal pour les sites industriels et commerciaux. Sa conception modulaire permet une adaptation rapide aux contraintes techniques du site.",
+    "image": "/assets/poste-prefabrique.png",
+    "gallery": [
+      "/assets/poste-prefabrique.png",
+      "/assets/poste-interieur.png",
+      "/assets/poste-installation.png",
+      "/assets/poste-transport.png"
+    ],
+    "specifications": {
+      "Puissance nominale": "630 kVA",
+      "Tension MT": "12 / 24 kV",
+      "Tension BT": "400 V",
+      "Fréquence": "50 Hz",
+      "Groupe vectoriel": "Dyn11",
+      "Indice de protection": "IP54",
+      "Matériau de la cabine": "Béton armé",
+      "Normes": "IEC 62271-202, IEC 60529"
+    },
+    "features": [
+      "Structure modulaire et robuste",
+      "Équipements MT/BT de haute qualité",
+      "Ventilation forcée disponible",
+      "Monitoring à distance possible"
+    ],
+    "advantages": [
+      "Haute fiabilité",
+      "Installation rapide",
+      "Maintenance facilitée",
+      "Longue durée de vie"
+    ],
+    "applications": [
+      "Industrie lourde",
+      "Zones industrielles",
+      "Data centers",
+      "Hôpitaux et infrastructures critiques"
+    ],
+    "documents": [
+      {
+        "title": "Fiche technique",
+        "url": "/documents/poste-kiosque-630-kva.pdf"
+      }
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "poste-kiosque-1000-kva",
+    "slug": "poste-kiosque-1000-kva",
+    "categoryId": "postes-prefabriques",
+    "categoryName": "Postes préfabriqués HT/BT",
+    "name": "Poste kiosque 1000 kVA",
+    "shortDescription": "Solution haute puissance pour les grands sites industriels.",
+    "description": "Le poste kiosque 1000 kVA est conçu pour les installations nécessitant une puissance élevée. Il offre une distribution électrique fiable et sécurisée pour les grands complexes industriels et commerciaux.",
+    "image": "/assets/poste-prefabrique.png",
+    "gallery": [
+      "/assets/poste-prefabrique.png",
+      "/assets/poste-interieur.png",
+      "/assets/poste-installation.png"
+    ],
+    "specifications": {
+      "Puissance nominale": "1000 kVA",
+      "Tension MT": "36 kV",
+      "Tension BT": "400 V",
+      "Fréquence": "50 Hz",
+      "Groupe vectoriel": "Dyn11",
+      "Indice de protection": "IP54",
+      "Matériau de la cabine": "Béton armé",
+      "Normes": "IEC 62271-202, IEC 60529"
+    },
+    "features": [
+      "Structure renforcée",
+      "Équipements haute tension",
+      "Système de refroidissement optimisé",
+      "Compatibilité SCADA"
+    ],
+    "advantages": [
+      "Puissance élevée",
+      "Fiabilité maximale",
+      "Installation sécurisée",
+      "Suivi à distance"
+    ],
+    "applications": [
+      "Grands complexes industriels",
+      "Centres commerciaux",
+      "Aéroports et gares"
+    ],
+    "documents": [],
+    "isFeatured": false
+  },
+  {
+    "id": "transformateur-100-kva",
+    "slug": "transformateur-100-kva",
+    "categoryId": "transformateurs",
+    "categoryName": "Transformateurs",
+    "name": "Transformateur 100 kVA",
+    "shortDescription": "Transformateur de distribution à faible pertes pour réseaux publics.",
+    "description": "Le transformateur 100 kVA est un appareil de distribution HT/BT conçu pour une efficacité optimale. Il respecte les normes internationales et offre une fiabilité éprouvée pour les réseaux de distribution publique.",
+    "image": "/assets/equipements-mt-bt.png",
+    "gallery": [
+      "/assets/equipements-mt-bt.png",
+      "/assets/poste-interieur.png"
+    ],
+    "specifications": {
+      "Puissance nominale": "100 kVA",
+      "Tension MT": "12 / 24 kV",
+      "Tension BT": "400 V",
+      "Fréquence": "50 Hz",
+      "Groupe vectoriel": "Dyn11",
+      "Type de refroidissement": "ONAN",
+      "Normes": "CEI 60076"
+    },
+    "features": [
+      "Faibles pertes en charge",
+      "Isolation huile minérale",
+      "Conforme aux normes internationales"
+    ],
+    "advantages": [
+      "Haute efficacité énergétique",
+      "Longue durée de vie",
+      "Maintenance réduite"
+    ],
+    "applications": [
+      "Réseaux de distribution",
+      "Zones résidentielles",
+      "Petites industries"
+    ],
+    "documents": [],
+    "isFeatured": false
+  },
+  {
+    "id": "transformateur-250-kva",
+    "slug": "transformateur-250-kva",
+    "categoryId": "transformateurs",
+    "categoryName": "Transformateurs",
+    "name": "Transformateur 250 kVA",
+    "shortDescription": "Transformateur polyvalent pour applications industrielles et commerciales.",
+    "description": "Le transformateur 250 kVA est un appareil de distribution fiable pour les applications industrielles et commerciales. Il offre un bon rapport performance/prix avec des pertes optimisées.",
+    "image": "/assets/equipements-mt-bt.png",
+    "gallery": [
+      "/assets/equipements-mt-bt.png",
+      "/assets/poste-interieur.png"
+    ],
+    "specifications": {
+      "Puissance nominale": "250 kVA",
+      "Tension MT": "12 / 24 kV",
+      "Tension BT": "400 V",
+      "Fréquence": "50 Hz",
+      "Groupe vectoriel": "Dyn11",
+      "Type de refroidissement": "ONAN",
+      "Normes": "CEI 60076"
+    },
+    "features": [
+      "Pertes optimisées",
+      "Isolation huile minérale",
+      "Construction robuste"
+    ],
+    "advantages": [
+      "Efficacité élevée",
+      "Fiabilité prouvée",
+      "Coût d'exploitation faible"
+    ],
+    "applications": [
+      "Industries",
+      "Centres commerciaux",
+      "Bâtiments tertiaires"
+    ],
+    "documents": [],
+    "isFeatured": true
+  },
+  {
+    "id": "transformateur-630-kva",
+    "slug": "transformateur-630-kva",
+    "categoryId": "transformateurs",
+    "categoryName": "Transformateurs",
+    "name": "Transformateur 630 kVA",
+    "shortDescription": "Transformateur haute puissance pour grands sites industriels.",
+    "description": "Le transformateur 630 kVA est conçu pour les installations industrielles nécessitant une puissance importante. Il garantit une distribution fiable et efficace de l'énergie électrique.",
+    "image": "/assets/equipements-mt-bt.png",
+    "gallery": [
+      "/assets/equipements-mt-bt.png",
+      "/assets/poste-interieur.png",
+      "/assets/poste-installation.png"
+    ],
+    "specifications": {
+      "Puissance nominale": "630 kVA",
+      "Tension MT": "12 / 24 kV",
+      "Tension BT": "400 V",
+      "Fréquence": "50 Hz",
+      "Groupe vectoriel": "Dyn11",
+      "Type de refroidissement": "ONAN",
+      "Normes": "CEI 60076"
+    },
+    "features": [
+      "Haute puissance",
+      "Pertes réduites",
+      "Construction industrielle"
+    ],
+    "advantages": [
+      "Performance optimale",
+      "Durée de vie prolongée",
+      "Installation simplifiée"
+    ],
+    "applications": [
+      "Industries lourdes",
+      "Zones industrielles",
+      "Grandes infrastructures"
+    ],
+    "documents": [
+      {
+        "title": "Fiche technique",
+        "url": "/documents/transformateur-630-kva.pdf"
+      }
+    ],
+    "isFeatured": true
+  },
+  {
+    "id": "cellule-mt-12kv",
+    "slug": "cellule-mt-12kv",
+    "categoryId": "cellules-mt",
+    "categoryName": "Cellules moyenne tension",
+    "name": "Cellule moyenne tension 12 kV",
+    "shortDescription": "Cellule MT pour protection et commande de réseaux 12 kV.",
+    "description": "La cellule moyenne tension 12 kV est un appareillage de manœuvre et de protection pour réseaux MT. Elle assure la sécurité des installations et la continuité de service.",
+    "image": "/assets/poste-interieur.png",
+    "gallery": [
+      "/assets/poste-interieur.png",
+      "/assets/poste-prefabrique.png"
+    ],
+    "specifications": {
+      "Tension nominale": "12 kV",
+      "Courant nominal": "630 A",
+      "Courant de court-circuit": "25 kA",
+      "Indice de protection": "IP54",
+      "Norme": "IEC 62271-200"
+    },
+    "features": [
+      "Manœuvrabilité sécurisée",
+      "Protection contre les défauts",
+      "Maintenance réduite"
+    ],
+    "advantages": [
+      "Sécurité optimale",
+      "Fiabilité élevée",
+      "Conformité normative"
+    ],
+    "applications": [
+      "Stations électriques",
+      "Postes de transformation",
+      "Réseaux industriels"
+    ],
+    "documents": [],
+    "isFeatured": false
+  },
+  {
+    "id": "cellule-mt-24kv",
+    "slug": "cellule-mt-24kv",
+    "categoryId": "cellules-mt",
+    "categoryName": "Cellules moyenne tension",
+    "name": "Cellule moyenne tension 24 kV",
+    "shortDescription": "Cellule MT pour réseaux haute tension 24 kV.",
+    "description": "La cellule moyenne tension 24 kV est conçue pour les réseaux de distribution MT haute tension. Elle offre une protection et une commande fiables des installations électriques.",
+    "image": "/assets/poste-interieur.png",
+    "gallery": [
+      "/assets/poste-interieur.png",
+      "/assets/poste-prefabrique.png"
+    ],
+    "specifications": {
+      "Tension nominale": "24 kV",
+      "Courant nominal": "630 A",
+      "Courant de court-circuit": "25 kA",
+      "Indice de protection": "IP54",
+      "Norme": "IEC 62271-200"
+    },
+    "features": [
+      "Isolation sous vide ou SF6",
+      "Protection intégrée",
+      "Contrôle à distance possible"
+    ],
+    "advantages": [
+      "Haute tension supportée",
+      "Sécurité renforcée",
+      "Longue durée de vie"
+    ],
+    "applications": [
+      "Postes sources MT",
+      "Industries énergivores",
+      "Infrastructures critiques"
+    ],
+    "documents": [],
+    "isFeatured": false
+  },
+  {
+    "id": "tableau-electrique-mt-bt",
+    "slug": "tableau-electrique-mt-bt",
+    "categoryId": "equipements-mt-bt",
+    "categoryName": "Équipements MT/BT",
+    "name": "Tableau électrique MT/BT",
+    "shortDescription": "Tableau de distribution moyenne et basse tension.",
+    "description": "Le tableau électrique MT/BT est un ensemble d'appareillage de distribution pour la moyenne et la basse tension. Il assure la protection et la répartition de l'énergie électrique.",
+    "image": "/assets/equipements-mt-bt.png",
+    "gallery": [
+      "/assets/equipements-mt-bt.png",
+      "/assets/poste-interieur.png"
+    ],
+    "specifications": {
+      "Tension MT": "12 / 24 kV",
+      "Tension BT": "400 V",
+      "Courant nominal": "1000 A",
+      "Indice de protection": "IP54"
+    },
+    "features": [
+      "Conception modulaire",
+      "Appareillage certifié",
+      "Câblage organisé"
+    ],
+    "advantages": [
+      "Distribution fiable",
+      "Installation rapide",
+      "Maintenance facilitée"
+    ],
+    "applications": [
+      "Bâtiments industriels",
+      "Centres commerciaux",
+      "Infrastructures publiques"
+    ],
+    "documents": [],
+    "isFeatured": false
+  },
+  {
+    "id": "armoire-electrique-bt",
+    "slug": "armoire-electrique-bt",
+    "categoryId": "equipements-mt-bt",
+    "categoryName": "Équipements MT/BT",
+    "name": "Armoire électrique BT",
+    "shortDescription": "Armoire de distribution basse tension pour applications industrielles.",
+    "description": "L'armoire électrique BT est un coffret de distribution et de protection pour les circuits basse tension. Elle est adaptée aux environnements industriels exigeants.",
+    "image": "/assets/equipements-mt-bt.png",
+    "gallery": [
+      "/assets/equipements-mt-bt.png"
+    ],
+    "specifications": {
+      "Tension nominale": "400 V",
+      "Courant nominal": "630 A",
+      "Indice de protection": "IP55"
+    },
+    "features": [
+      "Structure métallique robuste",
+      "Protection IP55",
+      "Compartimentage isolé"
+    ],
+    "advantages": [
+      "Sécurité renforcée",
+      "Robustesse industrielle",
+      "Personnalisation possible"
+    ],
+    "applications": [
+      "Industries",
+      "Bâtiments commerciaux"
+    ],
+    "documents": [],
+    "isFeatured": false
+  },
+  {
+    "id": "cable-mt-24kv",
+    "slug": "cable-mt-24kv",
+    "categoryId": "cables-accessoires",
+    "categoryName": "Câbles & Accessoires",
+    "name": "Câble MT 24 kV",
+    "shortDescription": "Câble moyenne tension pour réseaux de distribution.",
+    "description": "Le câble MT 24 kV est un conducteur isolé pour le transport d'énergie en moyenne tension. Il est conforme aux normes internationales et adapté aux installations extérieures.",
+    "image": "/assets/poste-transport.png",
+    "gallery": [
+      "/assets/poste-transport.png"
+    ],
+    "specifications": {
+      "Tension nominale": "24 kV",
+      "Section": "240 mm²",
+      "Type d'isolation": "XLPE",
+      "Norme": "IEC 60502"
+    },
+    "features": [
+      "Isolation XLPE haute performance",
+      "Résistance aux UV",
+      "Flexibilité de pose"
+    ],
+    "advantages": [
+      "Haute fiabilité",
+      "Résistance mécanique",
+      "Durée de vie longue"
+    ],
+    "applications": [
+      "Réseaux de distribution MT",
+      "Branchements industriels"
+    ],
+    "documents": [],
+    "isFeatured": false
+  },
+  {
+    "id": "cable-bt-400v",
+    "slug": "cable-bt-400v",
+    "categoryId": "cables-accessoires",
+    "categoryName": "Câbles & Accessoires",
+    "name": "Câble BT 400 V",
+    "shortDescription": "Câble basse tension pour installations électriques.",
+    "description": "Le câble BT 400 V est un conducteur pour le transport d'énergie en basse tension. Il est utilisé dans les installations industrielles et résidentielles.",
+    "image": "/assets/poste-transport.png",
+    "gallery": [
+      "/assets/poste-transport.png"
+    ],
+    "specifications": {
+      "Tension nominale": "400 V",
+      "Section": "95 mm²",
+      "Type d'isolation": "PVC",
+      "Norme": "IEC 60502"
+    },
+    "features": [
+      "Isolation PVC ignifugée",
+      "Pose facile",
+      "Conformité CE"
+    ],
+    "advantages": [
+      "Coût compétitif",
+      "Polyvalence d'usage",
+      "Sécurité electricité"
+    ],
+    "applications": [
+      "Installations industrielles",
+      "Bâtiments résidentiels"
+    ],
+    "documents": [],
+    "isFeatured": false
+  },
+  {
+    "id": "cosse-de-raccordement",
+    "slug": "cosse-de-raccordement",
+    "categoryId": "cables-accessoires",
+    "categoryName": "Câbles & Accessoires",
+    "name": "Cosse de raccordement",
+    "shortDescription": "Accessoire de raccordement haute qualité pour câbles électriques.",
+    "description": "La cosse de raccordement est un accessoire essentiel pour le raccordement sécurisé des câbles électriques. Elle assure une conductivité optimale et une tenue mécanique fiable.",
+    "image": "/assets/poste-transport.png",
+    "gallery": [
+      "/assets/poste-transport.png"
+    ],
+    "specifications": {
+      "Type": "Cosses cuivre et aluminium",
+      "Norme": "NFC 20-010"
+    },
+    "features": [
+      "Conductivité optimale",
+      "Résistance mécanique",
+      "Large gamme de sections"
+    ],
+    "advantages": [
+      "Raccordement sécurisé",
+      "Longue durée de vie",
+      "Facilité de pose"
+    ],
+    "applications": [
+      "Postes électriques",
+      "Installations industrielles"
+    ],
+    "documents": [],
+    "isFeatured": false
+  },
+  {
+    "id": "lot-securite-intervention",
+    "slug": "lot-securite-intervention",
+    "categoryId": "lots-securite",
+    "categoryName": "Lots de sécurité",
+    "name": "Lot de sécurité intervention",
+    "shortDescription": "Kit complet d'équipements de sécurité pour interventions électriques.",
+    "description": "Le lot de sécurité intervention est un ensemble complet d'équipements de protection pour les interventions sur installations électriques. Il comprend tous les équipements nécessaires pour garantir la sécurité du personnel.",
+    "image": "/assets/poste-installation.png",
+    "gallery": [
+      "/assets/poste-installation.png"
+    ],
+    "specifications": {
+      "Norme": "EN 61215",
+      "Niveau de protection": "1000 V AC"
+    },
+    "features": [
+      "Gants isolants certifiés",
+      "Tapis de sécurité",
+      "Outils isolés 1000 V",
+      "Écran facial"
+    ],
+    "advantages": [
+      "Protection complète",
+      "Conformité normative",
+      "Kit prêt à l'emploi"
+    ],
+    "applications": [
+      "Interventions sur installations MT/BT",
+      "Maintenance électrique"
+    ],
+    "documents": [],
+    "isFeatured": false
+  },
+  {
+    "id": "lot-securite-haute-tension",
+    "slug": "lot-securite-haute-tension",
+    "categoryId": "lots-securite",
+    "categoryName": "Lots de sécurité",
+    "name": "Lot de sécurité haute tension",
+    "shortDescription": "Équipements de protection pour travaux sous tension.",
+    "description": "Le lot de sécurité haute tension est un ensemble d'équipements de protection spécialement conçu pour les travaux sous tension sur installations HT. Il répond aux exigences les plus strictes en matière de sécurité électrique.",
+    "image": "/assets/poste-installation.png",
+    "gallery": [
+      "/assets/poste-installation.png"
+    ],
+    "specifications": {
+      "Norme": "IEC 61215",
+      "Niveau de protection": "36 kV"
+    },
+    "features": [
+      "Vêtements ignifugés",
+      "Gants isolants classe 00",
+      "Perche isolante",
+      "Détecteur de tension"
+    ],
+    "advantages": [
+      "Protection maximale",
+      "Conforme aux normes HT",
+      "Utilisation professionnelle"
+    ],
+    "applications": [
+      "Travaux sous tension HT",
+      "Maintenance de postes électriques"
+    ],
+    "documents": [],
+    "isFeatured": false
+  }
+]

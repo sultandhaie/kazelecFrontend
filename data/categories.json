@@ -1,0 +1,44 @@
+[
+  {
+    "id": "postes-prefabriques",
+    "name": "Postes préfabriqués HT/BT",
+    "slug": "postes-prefabriques-ht-bt",
+    "description": "Postes transformateurs préfabriqués en béton armé, prêts à l'emploi pour la distribution publique et industrielle.",
+    "icon": "Factory"
+  },
+  {
+    "id": "transformateurs",
+    "name": "Transformateurs",
+    "slug": "transformateurs",
+    "description": "Transformateurs de distribution HT/BT à faible pertes et haute performance.",
+    "icon": "Cog"
+  },
+  {
+    "id": "cellules-mt",
+    "name": "Cellules moyenne tension",
+    "slug": "cellules-moyenne-tension",
+    "description": "Cellules MT pour la protection, la mesure et la commande des réseaux électriques.",
+    "icon": "CircuitBoard"
+  },
+  {
+    "id": "equipements-mt-bt",
+    "name": "Équipements MT/BT",
+    "slug": "equipements-mt-bt",
+    "description": "Tableaux électriques, armoires et équipements de distribution moyenne et basse tension.",
+    "icon": "Cable"
+  },
+  {
+    "id": "cables-accessoires",
+    "name": "Câbles & Accessoires",
+    "slug": "cables-accessoires",
+    "description": "Câbles électriques et accessoires de raccordement haute qualité.",
+    "icon": "Wrench"
+  },
+  {
+    "id": "lots-securite",
+    "name": "Lots de sécurité",
+    "slug": "lots-securite",
+    "description": "Équipements de sécurité pour interventions électriques en toute conformité.",
+    "icon": "Shield"
+  }
+]
