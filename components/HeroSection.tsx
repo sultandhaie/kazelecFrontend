@@ -45,7 +45,7 @@ const trustItems: Array<{
 
 export default function HeroSection() {
   return (
-    <section className="group relative w-full overflow-visible bg-[#002B5C] py-20 md:min-h-[680px] lg:h-[calc(100svh-80px)] lg:min-h-[700px] lg:py-0 2xl:h-[720px]">
+    <section className="group relative w-full overflow-visible bg-[#002B5C] py-20 md:min-h-[680px] lg:h-[calc(100svh-80px)] lg:min-h-[700px] lg:py-0 2xl:h-[820px]">
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/assets/hero.webp"
@@ -64,7 +64,7 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-[#002B5C]/55 lg:inset-y-0 lg:left-0 lg:right-auto lg:w-[58%] lg:bg-gradient-to-br lg:from-[#002B5C]/65 lg:to-[#003B7A]/55 [clip-path:none] lg:[clip-path:polygon(0_0,82%_0,100%_100%,0%_100%)]" />
 
-      <div className="relative z-20 mx-auto flex h-full max-w-7xl items-center px-6 lg:items-start lg:px-8 lg:pb-44 lg:pt-24 xl:items-start xl:px-10 xl:pb-40 xl:pt-24 2xl:pb-36">
+      <div className="relative z-20 mx-auto flex h-full max-w-7xl items-center px-6 lg:items-start lg:px-8 lg:pb-44 lg:pt-24 xl:items-start xl:px-10 xl:pb-40 xl:pt-24 2xl:pb-52">
         <div className="w-full max-w-[590px] xl:max-w-[650px]">
           <p className="opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] font-[var(--font-heading)] text-2xl font-extrabold text-[#FF7A00] md:text-3xl lg:text-xl xl:text-2xl 2xl:text-3xl">
             Qualité N°1 :

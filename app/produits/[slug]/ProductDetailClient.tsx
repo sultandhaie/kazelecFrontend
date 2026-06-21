@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -53,14 +53,26 @@ export default function ProductDetailClient({
   product: Product;
   relatedProducts: Product[];
 }) {
-  const [activeTab, setActiveTab] = useState(0);
-  const [activeImage, setActiveImage] = useState(0);
+  const [activeTab, setActiveTab] = React.useState(0);
+  const [activeImage, setActiveImage] = React.useState(0);
+  const tabContentRef = useRef<HTMLDivElement>(null);
 
   const specsEntries = Object.entries(product.specifications);
+  const dimensionEntries = specsEntries.filter(([key]) =>
+    /dimension|longueur|largeur|hauteur|profondeur|poids|encombrement|taille/i.test(key)
+  );
+  const nonDimensionSpecs = specsEntries.filter(([key]) =>
+    !/dimension|longueur|largeur|hauteur|profondeur|poids|encombrement|taille/i.test(key)
+  );
 
   const gallery = product.gallery.length > 0
     ? product.gallery
     : [getPlaceholderImage(0)];
+
+  const handleTabChange = (index: number) => {
+    setActiveTab(index);
+    tabContentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <main className="bg-[#F8FAFC] text-[#0F172A]">
@@ -152,7 +164,7 @@ export default function ProductDetailClient({
           {tabs.map((tab, index) => (
             <button
               key={tab}
-              onClick={() => setActiveTab(index)}
+              onClick={() => handleTabChange(index)}
               className={`relative shrink-0 px-4 py-4 font-[var(--font-heading)] text-sm font-semibold transition ${
                 activeTab === index
                   ? "text-[#003B7A]"
@@ -176,214 +188,318 @@ export default function ProductDetailClient({
         </div>
       </section>
 
-      {/* ─── PRODUCT OVERVIEW ─── */}
-      <section className="px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.2fr_0.8fr] lg:items-start">
-          {/* LEFT — Presentation */}
-          <div>
-            <h2 className="font-[var(--font-heading)] text-xl font-bold tracking-[-0.02em] text-[#003B7A]">
-              Présentation du produit
-            </h2>
-            <p className="mt-4 font-[var(--font-body)] text-sm leading-relaxed text-slate-600">
-              {product.description}
-            </p>
+      {/* ─── TAB CONTENT ─── */}
+      <div ref={tabContentRef}>
+        {/* TAB 0: Présentation */}
+        {activeTab === 0 && (
+          <>
+            <section className="px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
+              <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.2fr_0.8fr] lg:items-start">
+                <div>
+                  <h2 className="font-[var(--font-heading)] text-xl font-bold tracking-[-0.02em] text-[#003B7A]">
+                    Présentation du produit
+                  </h2>
+                  <p className="mt-4 font-[var(--font-body)] text-sm leading-relaxed text-slate-600">
+                    {product.description}
+                  </p>
+                  {product.features.length > 0 && (
+                    <ul className="mt-6 grid gap-3">
+                      {product.features.map((item) => (
+                        <li key={item} className="flex gap-3 font-[var(--font-body)] text-sm text-slate-700">
+                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF7A00] text-white">
+                            <Check className="h-3 w-3" />
+                          </span>
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
 
-            {product.features.length > 0 && (
-              <ul className="mt-6 grid gap-3">
-                {product.features.map((item) => (
-                  <li key={item} className="flex gap-3 font-[var(--font-body)] text-sm text-slate-700">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF7A00] text-white">
-                      <Check className="h-3 w-3" />
-                    </span>
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          {/* MIDDLE — Image Gallery */}
-          <div className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-[#E5E7EB]">
-            <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#F8FAFC]">
-              <Image
-                src={gallery[activeImage]}
-                alt={product.name}
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-contain p-8 transition-transform duration-500"
-              />
-              <button className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/80 text-[#003B7A] shadow transition hover:bg-white">
-                <ZoomIn className="h-4 w-4" />
-              </button>
-              {gallery.length > 1 && (
-                <>
-                  <button
-                    onClick={() => setActiveImage((prev) => (prev === 0 ? gallery.length - 1 : prev - 1))}
-                    className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-[#003B7A] shadow transition hover:bg-white"
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                  </button>
-                  <button
-                    onClick={() => setActiveImage((prev) => (prev === gallery.length - 1 ? 0 : prev + 1))}
-                    className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-[#003B7A] shadow transition hover:bg-white"
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </>
-              )}
-            </div>
-            {gallery.length > 1 && (
-              <div className="mt-3 flex gap-2 overflow-x-auto scrollbar-none">
-                {gallery.map((img, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveImage(index)}
-                    className={`relative h-16 w-16 shrink-0 overflow-hidden rounded-xl ring-2 transition ${
-                      activeImage === index
-                        ? "ring-[#FF7A00]"
-                        : "ring-transparent hover:ring-[#E5E7EB]"
-                    }`}
-                  >
+                <div className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-[#E5E7EB]">
+                  <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#F8FAFC]">
                     <Image
-                      src={img}
-                      alt={`${product.name} ${index + 1}`}
+                      src={gallery[activeImage]}
+                      alt={product.name}
                       fill
-                      sizes="64px"
-                      className="object-contain bg-[#F8FAFC] p-1"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-contain p-8 transition-transform duration-500"
                     />
-                  </button>
-                ))}
+                    <button className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/80 text-[#003B7A] shadow transition hover:bg-white">
+                      <ZoomIn className="h-4 w-4" />
+                    </button>
+                    {gallery.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => setActiveImage((prev) => (prev === 0 ? gallery.length - 1 : prev - 1))}
+                          className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-[#003B7A] shadow transition hover:bg-white"
+                        >
+                          <ArrowLeft className="h-4 w-4" />
+                        </button>
+                        <button
+                          onClick={() => setActiveImage((prev) => (prev === gallery.length - 1 ? 0 : prev + 1))}
+                          className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-[#003B7A] shadow transition hover:bg-white"
+                        >
+                          <ArrowRight className="h-4 w-4" />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                  {gallery.length > 1 && (
+                    <div className="mt-3 flex gap-2 overflow-x-auto scrollbar-none">
+                      {gallery.map((img, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setActiveImage(index)}
+                          className={`relative h-16 w-16 shrink-0 overflow-hidden rounded-xl ring-2 transition ${
+                            activeImage === index
+                              ? "ring-[#FF7A00]"
+                              : "ring-transparent hover:ring-[#E5E7EB]"
+                          }`}
+                        >
+                          <Image
+                            src={img}
+                            alt={`${product.name} ${index + 1}`}
+                            fill
+                            sizes="64px"
+                            className="object-contain bg-[#F8FAFC] p-1"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-[#E5E7EB]">
+                  <h3 className="font-[var(--font-heading)] text-lg font-bold text-[#003B7A]">
+                    Caractéristiques clés
+                  </h3>
+                  <div className="mt-5 grid gap-3">
+                    {specsEntries.slice(0, 7).map(([key, value]) => (
+                      <div key={key} className="flex items-center justify-between border-b border-[#E5E7EB] pb-3 last:border-0 last:pb-0">
+                        <span className="font-[var(--font-body)] text-sm text-slate-500">{key}</span>
+                        <span className="font-[var(--font-heading)] text-sm font-semibold text-[#0F172A]">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                  {product.documents.length > 0 && (
+                    <a
+                      href={product.documents[0].url}
+                      className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-[#FF7A00] px-4 py-3 font-[var(--font-heading)] text-sm font-bold text-[#FF7A00] transition hover:bg-[#FF7A00]/5"
+                    >
+                      <Download className="h-4 w-4" />
+                      {product.documents[0].title}
+                    </a>
+                  )}
+                </div>
               </div>
-            )}
-          </div>
+            </section>
 
-          {/* RIGHT — Characteristics Card */}
-          <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-[#E5E7EB]">
-            <h3 className="font-[var(--font-heading)] text-lg font-bold text-[#003B7A]">
-              Caractéristiques clés
-            </h3>
-            <div className="mt-5 grid gap-3">
-              {specsEntries.slice(0, 7).map(([key, value]) => (
-                <div key={key} className="flex items-center justify-between border-b border-[#E5E7EB] pb-3 last:border-0 last:pb-0">
-                  <span className="font-[var(--font-body)] text-sm text-slate-500">{key}</span>
-                  <span className="font-[var(--font-heading)] text-sm font-semibold text-[#0F172A]">{value}</span>
+            <section className="bg-white px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
+              <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
+                <div className="rounded-3xl bg-[#F8FAFC] p-8 ring-1 ring-[#E5E7EB]">
+                  <h2 className="font-[var(--font-heading)] text-xl font-bold text-[#003B7A]">
+                    Avantages
+                  </h2>
+                  <ul className="mt-5 grid gap-3">
+                    {product.advantages.map((item) => (
+                      <li key={item} className="flex gap-3 font-[var(--font-body)] text-sm text-slate-700">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF7A00] text-white">
+                          <Check className="h-3 w-3" />
+                        </span>
+                        <span className="leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
-            </div>
-            {product.documents.length > 0 && (
-              <a
-                href={product.documents[0].url}
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-[#FF7A00] px-4 py-3 font-[var(--font-heading)] text-sm font-bold text-[#FF7A00] transition hover:bg-[#FF7A00]/5"
-              >
-                <Download className="h-4 w-4" />
-                {product.documents[0].title}
-              </a>
-            )}
-          </div>
-        </div>
-      </section>
 
-      {/* ─── ADVANTAGES + APPLICATIONS ─── */}
-      <section className="bg-white px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl bg-[#F8FAFC] p-8 ring-1 ring-[#E5E7EB]">
-            <h2 className="font-[var(--font-heading)] text-xl font-bold text-[#003B7A]">
-              Avantages
-            </h2>
-            <ul className="mt-5 grid gap-3">
-              {product.advantages.map((item) => (
-                <li key={item} className="flex gap-3 font-[var(--font-body)] text-sm text-slate-700">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF7A00] text-white">
-                    <Check className="h-3 w-3" />
-                  </span>
-                  <span className="leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-3xl bg-[#F8FAFC] p-8 ring-1 ring-[#E5E7EB]">
-            <h2 className="font-[var(--font-heading)] text-xl font-bold text-[#003B7A]">
-              Domaines d&apos;application
-            </h2>
-            <div className="mt-5 grid grid-cols-2 gap-3">
-              {product.applications.map((item) => (
-                <div key={item} className="flex items-start gap-2.5">
-                  <Factory className="mt-0.5 h-4 w-4 shrink-0 text-[#003B7A]" />
-                  <span className="font-[var(--font-body)] text-sm text-slate-700">{item}</span>
+                <div className="rounded-3xl bg-[#F8FAFC] p-8 ring-1 ring-[#E5E7EB]">
+                  <h2 className="font-[var(--font-heading)] text-xl font-bold text-[#003B7A]">
+                    Domaines d&apos;application
+                  </h2>
+                  <div className="mt-5 grid grid-cols-2 gap-3">
+                    {product.applications.map((item) => (
+                      <div key={item} className="flex items-start gap-2.5">
+                        <Factory className="mt-0.5 h-4 w-4 shrink-0 text-[#003B7A]" />
+                        <span className="font-[var(--font-body)] text-sm text-slate-700">{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+              </div>
+            </section>
+          </>
+        )}
 
-      {/* ─── TECHNICAL SPECIFICATIONS TABLE ─── */}
-      <section className="px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="font-[var(--font-heading)] text-2xl font-bold tracking-[-0.02em] text-[#003B7A] lg:text-3xl">
-            Spécifications techniques
-          </h2>
-          <div className="mt-8 overflow-hidden rounded-2xl bg-white ring-1 ring-[#E5E7EB]">
-            <table className="w-full">
-              <tbody>
-                {specsEntries.map(([key, value], index) => (
-                  <tr
-                    key={key}
-                    className={index % 2 === 0 ? "bg-white" : "bg-[#F8FAFC]"}
+        {/* TAB 1: Caractéristiques techniques */}
+        {activeTab === 1 && (
+          <section className="px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
+            <div className="mx-auto max-w-7xl">
+              <h2 className="font-[var(--font-heading)] text-2xl font-bold tracking-[-0.02em] text-[#003B7A] lg:text-3xl">
+                Spécifications techniques
+              </h2>
+              <div className="mt-8 overflow-hidden rounded-2xl bg-white ring-1 ring-[#E5E7EB]">
+                <table className="w-full">
+                  <tbody>
+                    {(nonDimensionSpecs.length > 0 ? nonDimensionSpecs : specsEntries).map(([key, value], index) => (
+                      <tr
+                        key={key}
+                        className={index % 2 === 0 ? "bg-white" : "bg-[#F8FAFC]"}
+                      >
+                        <td className="px-6 py-4 font-[var(--font-heading)] text-sm font-semibold text-[#003B7A]">
+                          {key}
+                        </td>
+                        <td className="px-6 py-4 text-right font-[var(--font-body)] text-sm text-[#0F172A]">
+                          {value}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* TAB 2: Dimensions */}
+        {activeTab === 2 && (
+          <section className="px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
+            <div className="mx-auto max-w-7xl">
+              <h2 className="font-[var(--font-heading)] text-2xl font-bold tracking-[-0.02em] text-[#003B7A] lg:text-3xl">
+                Dimensions
+              </h2>
+              {dimensionEntries.length > 0 ? (
+                <div className="mt-8 overflow-hidden rounded-2xl bg-white ring-1 ring-[#E5E7EB]">
+                  <table className="w-full">
+                    <tbody>
+                      {dimensionEntries.map(([key, value], index) => (
+                        <tr
+                          key={key}
+                          className={index % 2 === 0 ? "bg-white" : "bg-[#F8FAFC]"}
+                        >
+                          <td className="px-6 py-4 font-[var(--font-heading)] text-sm font-semibold text-[#003B7A]">
+                            {key}
+                          </td>
+                          <td className="px-6 py-4 text-right font-[var(--font-body)] text-sm text-[#0F172A]">
+                            {value}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div className="mt-8 rounded-2xl bg-white p-12 text-center ring-1 ring-[#E5E7EB]">
+                  <p className="font-[var(--font-body)] text-sm text-slate-500">
+                    Les dimensions détaillées ne sont pas disponibles pour ce produit.
+                  </p>
+                  <a
+                    href="/contact"
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#FF7A00] px-5 py-2.5 font-[var(--font-heading)] text-xs font-bold uppercase tracking-wide text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#ff8c1a]"
                   >
-                    <td className="px-6 py-4 font-[var(--font-heading)] text-sm font-semibold text-[#003B7A]">
-                      {key}
-                    </td>
-                    <td className="px-6 py-4 text-right font-[var(--font-body)] text-sm text-[#0F172A]">
-                      {value}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SIMILAR PRODUCTS + EXPERT CTA ─── */}
-      <section className="bg-white px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl bg-[#F8FAFC] p-8 ring-1 ring-[#E5E7EB]">
-            <h2 className="font-[var(--font-heading)] text-xl font-bold text-[#003B7A]">
-              Produits similaires
-            </h2>
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              {relatedProducts.map((item) => (
-                <Link
-                  key={item.id}
-                  href={`/produits/${item.slug}`}
-                  className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[#E5E7EB] transition hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <div className="relative aspect-square overflow-hidden bg-[#F8FAFC]">
-                    <Image
-                      src={item.image || getPlaceholderImage(0)}
-                      alt={item.name}
-                      fill
-                      sizes="(max-width: 640px) 50vw, 25vw"
-                      className="object-cover p-4 transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-3">
-                    <h3 className="font-[var(--font-heading)] text-xs font-bold text-[#003B7A]">
-                      {item.name}
-                    </h3>
-                  </div>
-                </Link>
-              ))}
-              {relatedProducts.length === 0 && (
-                <p className="col-span-2 text-center font-[var(--font-body)] text-sm text-slate-500">
-                  Aucun produit similaire disponible.
-                </p>
+                    Contactez-nous pour plus d&apos;informations
+                  </a>
+                </div>
               )}
             </div>
-          </div>
+          </section>
+        )}
 
+        {/* TAB 3: Documents */}
+        {activeTab === 3 && (
+          <section className="px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
+            <div className="mx-auto max-w-7xl">
+              <h2 className="font-[var(--font-heading)] text-2xl font-bold tracking-[-0.02em] text-[#003B7A] lg:text-3xl">
+                Documents
+              </h2>
+              {product.documents.length > 0 ? (
+                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {product.documents.map((doc) => (
+                    <a
+                      key={doc.url}
+                      href={doc.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-4 rounded-2xl bg-white p-5 ring-1 ring-[#E5E7EB] transition hover:-translate-y-0.5 hover:shadow-lg"
+                    >
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#003B7A]/10 text-[#003B7A] transition group-hover:bg-[#FF7A00] group-hover:text-white">
+                        <Download className="h-5 w-5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="font-[var(--font-heading)] text-sm font-bold text-[#003B7A] truncate">
+                          {doc.title}
+                        </p>
+                        <p className="mt-0.5 font-[var(--font-body)] text-xs text-slate-500">
+                          PDF
+                        </p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-8 rounded-2xl bg-white p-12 text-center ring-1 ring-[#E5E7EB]">
+                  <p className="font-[var(--font-body)] text-sm text-slate-500">
+                    Aucun document n&apos;est disponible pour ce produit.
+                  </p>
+                  <a
+                    href="/contact"
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#FF7A00] px-5 py-2.5 font-[var(--font-heading)] text-xs font-bold uppercase tracking-wide text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#ff8c1a]"
+                  >
+                    Contactez-nous pour plus d&apos;informations
+                  </a>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* TAB 4: Produits similaires */}
+        {activeTab === 4 && (
+          <section className="px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
+            <div className="mx-auto max-w-7xl">
+              <h2 className="font-[var(--font-heading)] text-2xl font-bold tracking-[-0.02em] text-[#003B7A] lg:text-3xl">
+                Produits similaires
+              </h2>
+              {relatedProducts.length > 0 ? (
+                <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                  {relatedProducts.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={`/produits/${item.slug}`}
+                      className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[#E5E7EB] transition hover:-translate-y-1 hover:shadow-lg"
+                    >
+                      <div className="relative aspect-square overflow-hidden bg-[#F8FAFC]">
+                        <Image
+                          src={item.image || getPlaceholderImage(0)}
+                          alt={item.name}
+                          fill
+                          sizes="(max-width: 640px) 50vw, 25vw"
+                          className="object-cover p-4 transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
+                      <div className="p-3">
+                        <h3 className="font-[var(--font-heading)] text-xs font-bold text-[#003B7A]">
+                          {item.name}
+                        </h3>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-8 rounded-2xl bg-white p-12 text-center ring-1 ring-[#E5E7EB]">
+                  <p className="font-[var(--font-body)] text-sm text-slate-500">
+                    Aucun produit similaire disponible.
+                  </p>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+      </div>
+
+      {/* ─── EXPERT CTA ─── */}
+      <section className="bg-white px-6 py-16 lg:px-8 lg:py-20 xl:px-10 xl:py-24">
+        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#002B5C] to-[#003B7A] p-8 text-white">
             <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[#FF7A00]/15 blur-3xl" />
             <h2 className="relative font-[var(--font-heading)] text-xl font-bold">
